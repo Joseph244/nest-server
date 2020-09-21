@@ -41,6 +41,8 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ApiParamsValidationPipe()); // 先执行pipe处理输入参数
   app.useGlobalFilters(new HttpExceptionFilter()); // 后执行filter过滤执行结果
+  //   拦截器和异常过滤器有什么差别？
+  // 首先，时机不同，拦截器的执行顺序在异常过滤器之前，这意味着拦截器抛出的错误，最后可经由过滤器处理；其次，对象不同，拦截器捕获的是routeHandler抛出的所有异常，而异常过滤器可通过@Catch(SomeException)来捕获特定的异常。
   console.info(
     `environment::: ${process.env.NODE_ENV},server run at::: ${process.env.PORT}`,
   );
