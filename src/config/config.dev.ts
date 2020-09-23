@@ -6,7 +6,7 @@ export default {
     port: 5432,
     username: 'postgres',
     password: '123456',
-    database: 'dog',
+    database: 'nest',
     synchronize: true,
     logging: true,
     entities: ['**/*.entity{.ts,.js}'],

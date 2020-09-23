@@ -2,35 +2,39 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+### 框架需要什么功能？
+
+1. - [x] 请求前后灵活的拦截器；并可支持接口的 web 安全 CROS；
+2. - [x] 基础的 get,post 等请求处理；
+3. - [x] 支持静态文件目录 public 与前端静态文件部署
+4. - [x] 支持 cookies
+5. - [x] 成熟稳定的 orm 框架：typeorm，sequelize,自动建表，更新表，建立表关联关系；queryBuilder 进行 sql 优化查询；typeorm 多表关联插入与查询；
+6. - [x] 打包之后 node 部署使用:拷贝打包之后的 dist 文件夹到服务器，执行 node main.js;记得要将 node_modules 拷贝到和 dist 文件夹同级目录;
+7. - [x] 支持独立的配置，自定义配置项，并可在打包之后修改；
+8. - [x] 可支持 swagger 展示现有 api
+9. - [x] 参数校验 class-validator
+
+** 下面的还未实现 **
+
+1. - [ ] 配置校验 Joi
+2. - [ ] 事物操作与回滚，@Transaction()
+3. - [ ] 支持接口数据的多种嵌套和自定义拼接
+4. - [ ] 支持日志打印分类管理，方便问题排查
+5. - [ ] 支持 websocket
+
+具有文件上传插件
+
 ## Installation
 
 ```bash
+由于依赖了bcrypt.js,在windows环境需要先用管理员身份运行命令行，并安装：
+npm install --global --production windows-build-tools
+npm i -g node-gyp
+
 $ npm install
 ```
 
@@ -41,7 +45,7 @@ $ npm install
 $ npm run start
 
 # watch mode
-$ npm run start:dev
+$ npm run dev
 
 # production mode
 $ npm run start:prod
@@ -60,6 +64,14 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Build
+
+由于部分依赖包有 linux 和 windows 下的环境区别，如果 windows 下开发移植到 linux 下部署遇到包报错，可尝试在 linux 下重新安装 node_modules
+
+```bash
+$ npm run build
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
@@ -72,4 +84,4 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE).
