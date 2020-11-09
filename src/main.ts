@@ -17,14 +17,14 @@ async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors(); // 跨源资源共享（CORS）
-  app.use(helmet()); // 通过适当地设置HTTP标头，头盔可以帮助保护您的应用免受一些众所周知的Web漏洞的影响
-  app.use(csurf()); // 避免跨站点请求伪造（称为CSRF或XSRF）--- 建议部署模式使用，否则开发模式将无法使用
-  app.use(
-    rateLimit({
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100, // limit each IP to 100 requests per windowMs
-    }),
-  ); // 为了保护应用程序免受暴力攻击，实现某种速率限制。
+  // app.use(helmet()); // 通过适当地设置HTTP标头，头盔可以帮助保护您的应用免受一些众所周知的Web漏洞的影响
+  // app.use(csurf()); // 避免跨站点请求伪造（称为CSRF或XSRF）--- 建议部署模式使用，否则开发模式将无法使用
+  // app.use(
+  //   rateLimit({
+  //     windowMs: 15 * 60 * 1000, // 15 minutes
+  //     max: 100, // limit each IP to 100 requests per windowMs
+  //   }),
+  // ); // 为了保护应用程序免受暴力攻击，实现某种速率限制。
 
   app.use(compression()); // 启用gzip压缩
   app.use(cookieParser());
